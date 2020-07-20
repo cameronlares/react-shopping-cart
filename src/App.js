@@ -9,12 +9,18 @@ import ShoppingCart from './components/ShoppingCart';
 
 function App() {
 	const [products] = useState(data);
-	const [cart, setCart] = useState([]);
+	const [cart, setCart] = useState([]); //Its an array
 
 	const addItem = item => {
 		// add the given item to the cart
-	};
+		console.log(item)
+	return setCart([item])
+	//cart is an array
+	
+	
+	//holds item details in a object
 
+	};
 	return (
 		<div className="App">
 			<Navigation cart={cart} />
