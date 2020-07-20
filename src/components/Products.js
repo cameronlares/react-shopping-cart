@@ -1,16 +1,21 @@
-import React from 'react';
-
+import React, { useContext } from 'react';
+import {ProductContext} from '../contexts/ProductContext'
+ 
 // Components
 import Product from './Product';
-const Products = props => {
+
+const Products = () => {
+	const { products, addItem } = useContext(ProductContext);
+
 	return (
+		
 		<div className="products-container">
-			{props.products.map(product => ( //data.map useState
+			{products.map(product => ( //data.map useState
 				<Product
 				
 					key={product.id}
 					product={product}
-					addItem={props.addItem}
+					addItem={addItem}
 					//addItem(product)
 				/>
 				
@@ -19,5 +24,26 @@ const Products = props => {
 		</div>
 	);
 };
+
+
+//*****BELOW IS BEFORE THE CHANGE */
+
+// const Products = props => {
+// 	return (
+// 		<div className="products-container">
+// 			{props.products.map(product => ( //data.map useState
+// 				<Product
+				
+// 					key={product.id}
+// 					product={product}
+// 					addItem={props.addItem}
+// 					//addItem(product)
+// 				/>
+				
+				
+// 			))}
+// 		</div>
+// 	);
+// };
 
 export default Products;
